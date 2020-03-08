@@ -1,5 +1,6 @@
 ## Name and live url
 Stephanie Kuo Week8 - Profile Generator
+https://sfds1.github.io/hw8profilegenerator/
 
 
 ## Description
