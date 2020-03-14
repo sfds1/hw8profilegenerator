@@ -70,7 +70,8 @@ const axios = require("axios");
 
 
                             //write file 
-
+                            // put the github username aftewr the profile name in the pdf. to make it more generic then don't need the response.githubName 
+                            // also edit the vat html at the top to just use profile.html
                             fs.writeFile("profile-" + response.githubName + ".html", generateHTML({ ...response, ...res.data }), function (err) {
 
                                 if (err) {
