@@ -10,15 +10,8 @@ var generateHTML = require("./generateHTML.js");
 // Need axios to make API call
 const axios = require("axios");
 
-// This array is set so the user can choose a background color for the cards
-// these colors are the ones set in the generateHTML.js
-// colorsArray = ["green","blue", "pink", "red"]
 
-
-// const questions = [
-
-// ];
-function init() {
+// function init() {
     inquirer
         .prompt([
             {
@@ -63,20 +56,15 @@ function init() {
                             // axios always stores the return from the get in to the .data field for the variable
                             // can look at the specific data want
                             console.log("repos call:", repo.data);
-                            let stars = 0
-                            // loop
-                            repo.data.map(e => {
-                                stars = stars + e.stargazers_count
-                            })
-                            console.log("------>",stars)
+           
 
                             // create one object as generateHTML can take one argument.  Combine the two responses
-                            let html = generateHTML({ stars,...response, ...res.data })
+                            let html = generateHTML({...response, ...res.data })
                             console.log(html)
-                            console.log(`this is the color ${response.color} nd the user ${response.githubName}`)
+                            console.log(`this is the color ${response.color} and the user ${response.githubName}`)
 
 
-                            //wirte file 
+                            //write file 
 
                             fs.writeFile("profile-" + response.githubName + ".html", generateHTML({ ...response, ...res.data }), function (err) {
 
@@ -85,7 +73,7 @@ function init() {
                                 }
 
                                 console.log("Success!");
-                                init()
+                                // init()
 
                             });
 
@@ -94,20 +82,11 @@ function init() {
                 })
             })
 
-        }
+        // }
 
-
-
-// function writeToFile(fileName, data) {
-
-
-
-
-// }
 
 // function init() {
 
-// $ npx gitignore node
-// $ npm init -y
-init();
+
+// init();
 // }
