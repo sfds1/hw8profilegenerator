@@ -28,12 +28,13 @@ The PDF will be populated with the following:
 
 
 ## How does it work?
-The user will be prompted for a favorite color, which will be used as the background color for cards.
+The user will be prompted for their GitHub username and will choose frmo a list of colors, which will be used as the background color for cards.
 
 ## Technologies
+Node, HTML, CSS, Javascript
 
 ## Languages, frameworks, various tools
-This application uses 
+This application uses Node packages axios, inquirer and html-pdf
 
 ## Challenges
 
@@ -45,7 +46,7 @@ This application was fun to build.
 Trying to remember all the right syntax.
 
 ## What did you learn
-I learned more about
+I learned more about node command line interface.
 
 ## How did you go about solving a problem
 
