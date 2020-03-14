@@ -4,6 +4,11 @@ var inquirer = require("inquirer");
 // Need the node filesystem module to run writeToFile
 var fs = require("fs");
 
+// Need this to convert html to PDF
+var pdf = require('html-pdf');
+var html = fs.readFileSync('./profile-sfds1.html', 'utf8');
+var options = { format: 'Letter' };
+
 // Need this so when call the generateHTML function it knows which js file to use
 var generateHTML = require("./generateHTML.js");
 
@@ -47,7 +52,7 @@ const axios = require("axios");
                     // create one object as generateHTML can take one argument.  Combine the two responses
                 
 
-
+                    // this call goes one level further to get the repo data based on the response from the first axios request
                     axios
                         .get("https://api.github.com/users/" + response.githubName + "/repos")
                         // response (in this case the variable is res) will have LOTS of data
@@ -80,6 +85,13 @@ const axios = require("axios");
                         });
 
                 })
+
+                    // create PDF pf html
+                pdf.create(html, options).toFile('./profile.pdf', function(err, res) {
+                    if (err) return console.log(err);
+                    console.log(res); // { filename: '/profile.pdf' }
+                  });
+
             })
 
         // }
